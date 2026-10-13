@@ -16,7 +16,7 @@ namespace ROS.UI
             });
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<ROS.Model.Tables.ApplicationDbContext>(options =>
-                options.UseMySql(connectionString, new MySqlServerVersion(new Version(9, 0, 1))));
+                options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 45))));
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
