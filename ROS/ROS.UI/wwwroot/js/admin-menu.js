@@ -1,5 +1,5 @@
 ﻿async function getMenu() {
-    var response = await fetch("http://localhost:5222/owner/get-menu");
+    var response = await fetch("https://ayush-restaurant-api.onrender.com/owner/get-menu");
     var data = await response.json();
     console.log(data);
     const tableBody = document.querySelector('#menu-table tbody');
@@ -30,7 +30,7 @@
 }
 async function updateAvailability(itemId) {
     try {
-        await fetch(`http://localhost:5222/owner/update-menu/${itemId}`, {
+        await fetch(`https://ayush-restaurant-api.onrender.com/owner/update-menu/${itemId}`, {
             method: 'PUT', 
         });
     } catch (error) {

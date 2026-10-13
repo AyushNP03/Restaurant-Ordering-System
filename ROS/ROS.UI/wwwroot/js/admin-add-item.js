@@ -7,7 +7,7 @@
     console.log(item_Description);
     console.log(item_Price);
 
-    const response = await fetch('http://localhost:5222/owner/add-item', {
+    const response = await fetch('https://ayush-restaurant-api.onrender.com/owner/add-item', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

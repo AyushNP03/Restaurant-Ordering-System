@@ -1,5 +1,5 @@
 ﻿async function getCustomers() {
-    const response = await fetch("http://localhost:5222/owner/get-customers");
+    const response = await fetch("https://ayush-restaurant-api.onrender.com/owner/get-customers");
     const tableBody = document.querySelector('#customers-table tbody');
     tableBody.innerHTML = '';
     if (response.ok) {

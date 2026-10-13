@@ -1,5 +1,5 @@
 async function fetchPendingOrders() {
-    const response = await fetch('http://localhost:5222/chef/pending-orders');
+    const response = await fetch('https://ayush-restaurant-api.onrender.com/chef/pending-orders');
     var pendingOrders = await response.json();
     console.log(pendingOrders);
     const tableBody = document.querySelector('#pending-orders-table tbody');
@@ -30,7 +30,7 @@ async function fetchPendingOrders() {
 }
 
 async function fetchServedOrders() {
-    const response = await fetch('http://localhost:5222/chef/served-orders');
+    const response = await fetch('https://ayush-restaurant-api.onrender.com/chef/served-orders');
     const servedOrders = await response.json();
     console.log(servedOrders);
     const tableBody = document.querySelector('#served-orders-table tbody');
@@ -57,7 +57,7 @@ async function fetchServedOrders() {
 }
 
 async function serveOrder(orderId) {
-    const response = await fetch(`http://localhost:5222/chef/serve-order/${orderId}`, {
+    const response = await fetch(`https://ayush-restaurant-api.onrender.com/chef/serve-order/${orderId}`, {
         method: 'PUT'
     });
 

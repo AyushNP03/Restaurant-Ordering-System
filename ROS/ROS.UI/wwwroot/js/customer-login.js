@@ -7,7 +7,7 @@
     console.log(customer_Phone);
     console.log(customer_Mail);
 
-    const response = await fetch('http://localhost:5222/customer/create-customer', {
+    const response = await fetch('https://ayush-restaurant-api.onrender.com/customer/create-customer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

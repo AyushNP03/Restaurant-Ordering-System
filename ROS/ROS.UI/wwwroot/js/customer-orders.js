@@ -6,7 +6,7 @@ async function GetOrders() {
         Customer_ID = 'CUST001';
     }
     console.log(Customer_ID);
-    const response = await fetch(`http://localhost:5222/customer/get-orders/${Customer_ID}`);
+    const response = await fetch(`https://ayush-restaurant-api.onrender.com/customer/get-orders/${Customer_ID}`);
     const tableBody = document.querySelector('#customer-orders-table tbody');
     tableBody.innerHTML = ''; 
     if (response.ok) {

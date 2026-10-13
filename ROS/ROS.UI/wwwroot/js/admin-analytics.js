@@ -1,5 +1,5 @@
 ﻿async function getAnalytics() {
-    const response = await fetch('http://localhost:5222/owner/get-analytics');
+    const response = await fetch('https://ayush-restaurant-api.onrender.com/owner/get-analytics');
     const data = await response.json();
     console.log(data);
     const pending_orders_element = document.getElementById("pending-orders");

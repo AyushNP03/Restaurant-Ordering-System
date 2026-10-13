@@ -2,7 +2,7 @@
     var Customer_ID = await sessionStorage.getItem('Customer_ID');
     var Cart_ID = await sessionStorage.getItem('Cart_ID');
     console.log(Customer_ID); console.log(Cart_ID);
-    var response = await fetch('http://localhost:5222/customer/get-menu');
+    var response = await fetch('https://ayush-restaurant-api.onrender.com/customer/get-menu');
     const tableBody = document.querySelector('#customer-menu-table tbody');
     tableBody.innerHTML = ''; 
     if (response.ok) {
@@ -46,7 +46,7 @@ async function AddToCart(item_ID) {
     var Customer_ID = await sessionStorage.getItem('Customer_ID');
     var Cart_ID = await sessionStorage.getItem('Cart_ID');
     console.log(Customer_ID); console.log(Cart_ID);
-    const response = await fetch('http://localhost:5222/customer/add-to-cart', {
+    const response = await fetch('https://ayush-restaurant-api.onrender.com/customer/add-to-cart', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

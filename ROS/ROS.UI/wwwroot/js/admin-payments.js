@@ -1,6 +1,6 @@
 ﻿
 async function fetchPendingPayments() {
-    const response = await fetch('http://localhost:5222/owner/get-pending-payments');
+    const response = await fetch('https://ayush-restaurant-api.onrender.com/owner/get-pending-payments');
     const tableBody = document.querySelector('#pending-payments-table tbody');
     tableBody.innerHTML = '';
     if (response.ok) {
@@ -31,7 +31,7 @@ async function fetchPendingPayments() {
     document.getElementById('pending-payments').style.display = 'block';
 }
 async function fetchPaidPayments() {
-    const response = await fetch('http://localhost:5222/owner/get-paid-payments');
+    const response = await fetch('https://ayush-restaurant-api.onrender.com/owner/get-paid-payments');
     const paidPayments = await response.json();
     const tableBody = document.querySelector('#paid-payments-table tbody');
     tableBody.innerHTML = ''; 
@@ -58,7 +58,7 @@ async function fetchPaidPayments() {
 }
 async function markPayment(paymentId) {
     try {
-        const response = await fetch(`http://localhost:5222/owner/mark-payment/${paymentId}`, {
+        const response = await fetch(`https://ayush-restaurant-api.onrender.com/owner/mark-payment/${paymentId}`, {
             method: 'PUT'
         });
 

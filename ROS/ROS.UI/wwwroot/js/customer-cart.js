@@ -1,7 +1,7 @@
 ﻿
 async function GetCart() {
     var Customer_ID = sessionStorage.getItem('Customer_ID');
-    const response = await fetch(`http://localhost:5222/customer/cart-items/${Customer_ID}`);
+    const response = await fetch(`https://ayush-restaurant-api.onrender.com/customer/cart-items/${Customer_ID}`);
     const tableBody = document.querySelector('#customer-cart-table tbody');
     if (tableBody == null) return;
     tableBody.innerHTML = '';
@@ -44,7 +44,7 @@ async function GetCart() {
 
 async function GetCartItems() {
     var Customer_ID = sessionStorage.getItem('Customer_ID');
-    const response = await fetch(`http://localhost:5222/customer/cart-items/${Customer_ID}`);
+    const response = await fetch(`https://ayush-restaurant-api.onrender.com/customer/cart-items/${Customer_ID}`);
     var total_Cost = 0;
     if (response.ok) {
         var data = await response.json();
@@ -68,7 +68,7 @@ async function RemoveFromCart(item_ID) {
     var Customer_ID = sessionStorage.getItem('Customer_ID');
     var Cart_ID = sessionStorage.getItem('Cart_ID');
     console.log(Customer_ID); console.log(Cart_ID); console.log(item_ID);
-    const response = await fetch(`http://localhost:5222/customer/remove-from-cart/${Cart_ID}/${Customer_ID}/${item_ID}`,{
+    const response = await fetch(`https://ayush-restaurant-api.onrender.com/customer/remove-from-cart/${Cart_ID}/${Customer_ID}/${item_ID}`,{
         method:'PUT'
     });
     if (response.ok) {
@@ -105,7 +105,7 @@ async function PlaceOrder(){
         Table_ID: 1,
         Items
     }
-    const response = await fetch("http://localhost:5222/customer/place-order", {
+    const response = await fetch("https://ayush-restaurant-api.onrender.com/customer/place-order", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -130,7 +130,7 @@ async function PlaceOrder(){
 }
 async function CheckOut() {
     var Customer_ID = sessionStorage.getItem('Customer_ID');
-    const response = await fetch(`http://localhost:5222/customer/cart-items/${Customer_ID}`);
+    const response = await fetch(`https://ayush-restaurant-api.onrender.com/customer/cart-items/${Customer_ID}`);
     if (!response.ok) { alert('No Cart Items Found.'); return; }
     const confirmation = confirm("Are you sure you want to place the order?");
     if (!confirmation) {
@@ -143,7 +143,7 @@ async function CashPayment() {
     var Customer_ID = sessionStorage.getItem('Customer_ID');
     var Total_Cost = sessionStorage.getItem('Total_Cost');
     console.log(Total_Cost);
-    const response = await fetch(`http://localhost:5222/customer/add-to-payments/${Customer_ID}/${Total_Cost}/false`, {
+    const response = await fetch(`https://ayush-restaurant-api.onrender.com/customer/add-to-payments/${Customer_ID}/${Total_Cost}/false`, {
         method:'POST'
     });
     if (response.ok) {
@@ -162,7 +162,7 @@ async function OnlinePayment() {
     var Customer_ID = sessionStorage.getItem('Customer_ID');
     var Total_Cost = sessionStorage.getItem('Total_Cost');
     console.log(Total_Cost);
-    const response = await fetch(`http://localhost:5222/customer/add-to-payments/${Customer_ID}/${Total_Cost}/true`, {
+    const response = await fetch(`https://ayush-restaurant-api.onrender.com/customer/add-to-payments/${Customer_ID}/${Total_Cost}/true`, {
         method: 'POST'
     });
     if (response.ok) {
